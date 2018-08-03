@@ -8,10 +8,7 @@
     <link rel="stylesheet" type="text/css" href="../../css/admin/store_admin_common.css">
     <link rel="stylesheet" href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
     <link rel="shortcut icon" href="../favicon.ico">
-    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../../node_modules/popper.js/dist/umd/popper.min.js"></script>
-    <script src="../../js/ad_header.js"></script>
+
 </head>
 
 <body>
@@ -75,18 +72,18 @@
                             </div>
                             <div class="ad-searchDist ad-searchTerm ad-input-long">
                                 <div class="ad-cat-select">
-                            <select>
-                            <option value="0">상세조건검색</option>
-                            <option value="1">주문상태</option>
-                            <option value="2">구매자ID</option>
-                            <option value="3">상품명</option>
-                            <option value="4">상품번호</option>
-                            <option value="5">상품주문번호</option>
-                            <option value="6">주문번호</option>
-                            <option value="7">상품번호</option>
-                            <option value="8">클레임</option>
-                          </select>
-                                </div>
+            <select class="ad-cat-select-content" name="slct" id="slct">
+              <option value="0">상세조건검색</option>
+                <option value="1">주문상태</option>
+                <option value="2">구매자ID</option>
+                <option value="3">상품명</option>
+                <option value="4">상품번호</option>
+                <option value="5">상품주문번호</option>
+                <option value="6">주문번호</option>
+                <option value="7">상품번호</option>
+                <option value="8">클레임</option>
+            </select>
+        </div>
                                 <input type="text">
                             </div>
                         </div>
@@ -120,7 +117,7 @@
                         </colgroup>
                         <thead>
                             <tr>
-                                <th scope="col"><input type="checkbox" name="" id='chk_all' value="" onclick="CtlExecutor.doCheckAll();" /><label for="chk_all">선택</label></th>
+                                <th scope="col"><input type="checkbox" name="" id='chk_all' value="" onclick="" /><label for="chk_all">선택</label></th>
                                 <th scope="cols">상품주문번호</th>
                                 <th scope="cols">주문번호</th>
                                 <th scope="cols">주문일시</th>
@@ -542,7 +539,7 @@
                                         </div>
                                         <div class="ad-modal-info-data">
                                             <div class="ad-modal-orderinfo">
-                                                상품발송일 data
+                                               <input type="text">
                                             </div>
                                             <div class="ad-modal-orderinfo">
                                                 택배사 data
@@ -612,7 +609,12 @@
         <!-- ad-main-content-->
     </div>
     <!--ad-main-wrapper-->
-
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../../node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script src="../../js/ad_header.js"></script>
+    <script src="../../js/ad_admin.js"></script>
 
 </body>
 

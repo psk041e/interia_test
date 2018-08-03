@@ -12,7 +12,7 @@ import bitcamp.java106.pms.service.MemberService;
 
 @Service
 public class MemberServiceImpl implements MemberService {
-    
+    // 해당 메소드의 대해 알고 싶으면 자세한건 인터페이스 참조
     MemberDao memberDao;
     
     public MemberServiceImpl(MemberDao memberDao) {
@@ -29,8 +29,8 @@ public class MemberServiceImpl implements MemberService {
     }
     
     @Override
-    public Member get(String id) {
-        return memberDao.selectOne(id);
+    public Member get(int no) {
+        return memberDao.selectOne(no);
     }
     
     @Override
@@ -53,12 +53,39 @@ public class MemberServiceImpl implements MemberService {
     }
     
     @Override
-    public int delete(String id) {
-        return memberDao.delete(id);
+    public int delete(int no) {
+        return memberDao.delete(no);
+    }
+    
+    @Override
+    public String searchId(String name, String phoneNumber) {
+        HashMap<String, Object> params = new HashMap<>();
+        params.put("name", name);
+        params.put("phoneNumber", phoneNumber);
+        
+        return memberDao.selectSearchOne(params);
+    }
+    
+    @Override
+    public boolean isSearchPassword(String id) {
+        return memberDao.selectSearchPassword(id) > 0 ? true : false;
+    }
+    
+    @Override
+    public int changePassword(int no, String password) {
+        HashMap<String, Object> params = new HashMap<>();
+        params.put("no", no);
+        params.put("password", password);
+        
+        return memberDao.updatePassword(params);
+    }
+    
+    @Override
+    public int memberNumber(String id) {
+        return memberDao.selectOneNumber(id);
     }
 }
 
-//ver 53 - 클래스 추가
 
 
 

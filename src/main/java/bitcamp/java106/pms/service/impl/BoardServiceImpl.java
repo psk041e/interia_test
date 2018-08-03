@@ -1,4 +1,3 @@
-// 업무로직 구현체 - 고객사 마다 다른 구현을 할 수 있다.
 package bitcamp.java106.pms.service.impl;
 
 import java.util.HashMap;
@@ -12,7 +11,7 @@ import bitcamp.java106.pms.service.BoardService;
 
 @Service
 public class BoardServiceImpl implements BoardService {
-    
+
     BoardDao boardDao;
     
     public BoardServiceImpl(BoardDao boardDao) {
@@ -25,34 +24,25 @@ public class BoardServiceImpl implements BoardService {
         params.put("startRowNo", (pageNo - 1) * pageSize);
         params.put("pageSize", pageSize);
         
+        System.out.println((pageNo - 1) * pageSize);
+        System.out.println(pageSize);
+        
         return boardDao.selectList(params);
     }
-    
+
     @Override
     public Board get(int no) {
         return boardDao.selectOne(no);
     }
-    
+
     @Override
-    public int add(Board board) {
-        return boardDao.insert(board);
+    public List<Board> commentList(int no) {
+        return boardDao.commentList(no);
+    }
+
+    @Override
+    public List<Board> hashtagList(int no) {
+        return boardDao.hashtagList(no);
     }
     
-    @Override
-    public int update(Board board) {
-        return boardDao.update(board);
-    }
-    
-    @Override
-    public int delete(int no) {
-        return boardDao.delete(no);
-    }
 }
-
-//ver 53 - 클래스 추가
-
-
-
-
-
-
